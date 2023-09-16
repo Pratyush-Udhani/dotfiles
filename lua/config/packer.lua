@@ -19,6 +19,13 @@ return require('packer').startup(function(use)
 			vim.cmd('colorscheme catppuccin')
 		end
 	}
+    --use { 
+    --    'Mofiqul/dracula.nvim',
+    --    config = function()
+    --        vim.cmd('colorscheme dracula-soft')
+    --    end
+    --}
+
 	use ( 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use ( 'nvim-treesitter/playground')
 	use ( 'theprimeagen/harpoon' )
@@ -37,6 +44,20 @@ return require('packer').startup(function(use)
 			{'hrsh7th/cmp-nvim-lsp'}, -- Required
 			{'L3MON4D3/LuaSnip'},     -- Required
 		}
-	}
+    }
+    use({
+        "ggandor/leap.nvim",
+        config = function()
+            require("leap").add_default_mappings()
+        end
+    })
+
+    use({
+        "aurum77/live-server.nvim",
+        run = function()
+            require"live_server.util".install()
+        end,
+        cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
+    })
 end)
 
