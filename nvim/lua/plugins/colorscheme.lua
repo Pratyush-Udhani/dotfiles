@@ -18,4 +18,5 @@ return {
     },
   },
   { "rcarriga/nvim-notify", enabled = false },
+  { "catppuccin/nvim", as = "catppuccin" },
 }
